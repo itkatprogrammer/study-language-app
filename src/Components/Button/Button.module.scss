@@ -1,0 +1,25 @@
+button {
+    padding: 6px 38px;
+    outline: none;      
+}
+
+.delete {
+    background: rgb(255 66 66 / 43%);
+    border: 1px solid #796060;
+}
+
+.edit {
+    background:  rgb(206 167 0 / 60%);
+    border: 1px solid #b39d26;
+}
+
+.save,
+.add {
+    background-color:  rgb(15 137 61 / 42%);
+    border: 1px solid #2a791e;
+}
+
+.cancel {
+    background:rgb(59 148 171 / 51%);
+    border: 1px solid #606879;
+}

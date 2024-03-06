@@ -1,0 +1,10 @@
+.addWordBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  padding: 6px 11px;
+  border-radius: 8px;
+}

@@ -1,7 +1,12 @@
-import "./styles/App.scss";
+import st from "./styles/App.module.scss";
+import MainPage from "./Components/MainPage/MainPage";
 
 function App() {
-  return <></>;
+  return (
+    <div className={st.wrapper}>
+      <MainPage />
+    </div>
+  );
 }
 
 export default App;
