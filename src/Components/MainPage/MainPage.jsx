@@ -1,10 +1,10 @@
 import React from "react";
-import AddWord from "../AddWord/AddWord";
-import Table from "../Table/Table";
-import st from "./MainPage.module.scss";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import AddWord from "../AddWord/AddWord";
+import Table from "../Table/Table";
 import Card from "../Card/Card";
+import st from "./MainPage.module.scss";
 
 export default function MainPage() {
   return (

@@ -15,7 +15,9 @@ export default function Card({ word, transcription, translation }) {
 
       <div>
         {isClicked ? (
-          <p onClick={handleClick}>{translation}</p>
+          <p className={st.translation} onClick={handleClick}>
+            {translation}
+          </p>
         ) : (
           <button onClick={handleClick} className={st.checkBtn}>
             Проверить
