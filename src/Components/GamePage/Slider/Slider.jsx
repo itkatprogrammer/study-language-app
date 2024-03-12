@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import Card from "./../Card/Card";
+import Card from "../../General/Card/Card";
 import style from "./Slider.module.scss";
-// import data from "./../../data";
 
 export default function Slider({ data }) {
   const [currentIndex, setCurrentIndex] = useState(0);

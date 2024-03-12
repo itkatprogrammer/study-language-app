@@ -1,6 +1,6 @@
 import React from "react";
 import AddCell from "../AddCell/AddCell";
-import Button from "./../Button/Button";
+import Button from "./../../General/Button/Button";
 import st from "./AddWord.module.scss";
 
 export default function AddWord() {

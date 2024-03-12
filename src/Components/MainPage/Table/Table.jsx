@@ -1,6 +1,6 @@
 import React from "react";
-import data from "../../data";
 import TableRow from "../TableRow/TableRow";
+import data from "./../../../data";
 import st from "./Table.module.css";
 
 export default function Table() {
