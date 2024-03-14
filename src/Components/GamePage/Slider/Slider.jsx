@@ -6,18 +6,21 @@ export default function Slider({ data }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex(currentIndex - 1);
+    setCurrentIndex(Math.max(currentIndex - 1, 0));
   };
 
   const handleNext = () => {
-    setCurrentIndex(currentIndex + 1);
+    setCurrentIndex(Math.min(currentIndex + 1, data.length - 1));
   };
 
-  const [isDisabled, setIsDisabled] = useState(false);
+  // const [isDisabled, setIsDisabled] = useState(false);
 
-  const handleWordsFinished = () => {
-    setIsDisabled(currentIndex === 0 || currentIndex === data.length - 1);
-  };
+  // const handleWordsFinished = () => {
+  //   setIsDisabled(currentIndex === 0 || currentIndex === data.length - 1);
+  // };
+
+  const isFirstCard = currentIndex === 0;
+  const isLastCard = currentIndex === data.length - 1;
 
   return (
     <div className={style.sliderBox}>
@@ -26,24 +29,30 @@ export default function Slider({ data }) {
           <button
             className={style.buttonRadius}
             onClick={handlePrev}
-            disabled={isDisabled}
+            disabled={isFirstCard}
           >
             ←
           </button>
         </div>
 
-        {data.length > 0 && (
-          <Card
-            word={data[currentIndex].word}
-            transcription={data[currentIndex].transcription}
-            translation={data[currentIndex].translation}
-          />
-        )}
+        {data.map((card, index) => (
+          <div
+            key={index}
+            style={{ display: index === currentIndex ? "block" : "none" }}
+          >
+            <Card
+              word={card.word}
+              transcription={card.transcription}
+              translation={card.translation}
+            />
+          </div>
+        ))}
+
         <div>
           <button
             className={style.buttonRadius}
             onClick={handleNext}
-            disabled={isDisabled}
+            disabled={isLastCard}
           >
             →
           </button>
