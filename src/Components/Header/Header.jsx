@@ -1,23 +1,44 @@
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import Logo from "./Logo/Logo";
-import st from "./Header.module.scss";
+import style from "./Header.module.scss";
 
 export default function Header() {
+  const [isScrolled, setISScrollde] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setISScrollde(true);
+      } else {
+        setISScrollde(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className='style.header__wrapper'>
-      <div className={st.header}>
-        <Logo />
-        <nav className={st.nav}>
-          <Link to='/' className='header__list-item'>
-            Dictionary
-          </Link>
-          <Link to='/cards' className='header__list-item'>
-            Cards
-          </Link>
-          <Link to='/game' className='header__list-item'>
-            Game
-          </Link>
-        </nav>
+    <div className={`${style.header} ${isScrolled ? style.fixedHeader : ""}`}>
+      <div>
+        <div className={style.headerContent}>
+          <Logo />
+          <nav className={style.nav}>
+            <Link to='/' className='header__list-item'>
+              Dictionary
+            </Link>
+            <Link to='/cards' className='header__list-item'>
+              Cards
+            </Link>
+            <Link to='/game' className='header__list-item'>
+              Game
+            </Link>
+          </nav>
+        </div>
       </div>
     </div>
   );
