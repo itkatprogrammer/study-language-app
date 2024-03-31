@@ -18,19 +18,19 @@ const words = [
     translation: "переговоры",
   },
   {
-    id: 5,
+    id: 4,
     word: "smile",
     transcription: "[smaɪl]",
     translation: "улыбка",
   },
   {
-    id: 6,
+    id: 5,
     word: "friends",
     transcription: "[frendz]",
     translation: "друзья",
   },
   {
-    id: 7,
+    id: 6,
     word: "education",
     transcription: "education",
     translation: "образование",

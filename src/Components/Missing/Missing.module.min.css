@@ -1,1 +1,1 @@
-.missingBox{display:flex;justify-content:center;align-items:center;height:78vh;font-size:50px}
+.missingBox{display:flex;flex-direction:column;justify-content:center;align-items:center;height:78vh;font-size:50px;gap:20px}

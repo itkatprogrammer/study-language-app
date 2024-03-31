@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import st from "./Card.module.scss";
 
-export default function Card({ word, transcription, translation }) {
+export default function Card({ word, transcription, translation, handleChecked }) {
   const [isClicked, setIsClicked] = useState(false);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    if (buttonRef.current) {
+      buttonRef.current.focus();
+    }
+  }, [word]);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
+    handleChecked()
   };
 
   return (
