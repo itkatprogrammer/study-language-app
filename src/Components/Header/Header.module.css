@@ -5,6 +5,7 @@
   align-items: center;
   border-bottom: 1px solid #beb8b8;
   max-height: 93px;
+  height: 9vh;
 }
 
 .header.fixedHeader {
@@ -22,6 +23,7 @@
   margin: 0 100px;
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .nav {
