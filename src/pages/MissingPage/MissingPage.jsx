@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import style from "./Missing.module.scss";
+import style from "./MissingPage.module.scss";
 
-export default function Missing() {
+export default function MissingPage() {
   return (
     <div>
       <div className={style.missingBox}>

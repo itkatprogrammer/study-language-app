@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import st from "./Card.module.scss";
+import style from "./Card.module.scss";
 
 export default function Card({ word, transcription, translation, handleChecked }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -17,17 +17,17 @@ export default function Card({ word, transcription, translation, handleChecked }
   };
 
   return (
-    <div className={st.card}>
+    <div className={style.card}>
       <h3>{word}</h3>
       <p>{transcription}</p>
 
       <div>
         {isClicked ? (
-          <p className={st.translation} onClick={handleClick}>
+          <p className={style.translation} onClick={handleClick}>
             {translation}
           </p>
         ) : (
-          <button onClick={handleClick} className={st.checkBtn}>
+          <button onClick={handleClick} className={style.checkBtn}>
             Проверить
           </button>
         )}

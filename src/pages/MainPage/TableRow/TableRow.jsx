@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from './../../../components/General/Button/Button'
-import st from "./TableRow.module.scss";
+import style from "./TableRow.module.scss";
 
 export default function TableRow({ id, word, transcription, translation }) {
   const [isEditing, setIsEditing] = useState(false);
@@ -68,7 +68,7 @@ export default function TableRow({ id, word, transcription, translation }) {
           editedTranslation
         )}
       </td>
-      <td className={st.buttonManage}>
+      <td className={style.buttonManage}>
         {isEditing ? (
           <>
             <Button type='save' buttonName='save' onClick={handleSave} />

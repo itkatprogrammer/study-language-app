@@ -1,25 +1,25 @@
-import st from "./Button.module.scss";
+import style from "./Button.module.scss";
 
-export default function Button(props) {
+export default function Button({ buttonName, type, onClick }) {
   const buttonClasses = {
-    edit: st.edit,
-    save: st.save,
-    cancel: st.cancel,
-    delete: st.delete,
-    add: st.add,
+    edit: style.edit,
+    save: style.save,
+    cancel: style.cancel,
+    delete: style.delete,
+    add: style.add,
   };
 
   const handleClick = () => {
-    props.onClick(props.type);
+    onClick(type);
   };
 
   return (
     <>
       <button
         onClick={handleClick}
-        className={`${st.button} ${buttonClasses[props.type]}`}
+        className={`${style.button} ${buttonClasses[type]}`}
       >
-        {props.buttonName}
+        {buttonName}
       </button>
     </>
   );
