@@ -15,8 +15,9 @@ export default function CardsPage() {
 
   return (
     <div>
-      <p>Изучено слов: {learnedWords}</p>
+      
       <div className={style.cardsList}>
+      <p>Изучено слов: {learnedWords}</p>
         {
           data.map(word => (
             <Card key={word.id} word={word.word} transcription={word.transcription} translation={word.translation} handleChecked={handleChecked} />
