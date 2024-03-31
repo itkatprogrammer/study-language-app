@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "./../../General/Button/Button";
+import Button from './../../../components/General/Button/Button'
 import st from "./TableRow.module.scss";
 
 export default function TableRow({ id, word, transcription, translation }) {

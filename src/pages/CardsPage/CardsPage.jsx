@@ -1,7 +1,8 @@
 import { useState } from "react";
 import data from './../../data'
-import Card from './../General/Card/Card';
+import Card from './../../components/General/Card/Card'
 import styles from './CardsPage.module.scss'
+
 
 export default function CardsPage() {
 

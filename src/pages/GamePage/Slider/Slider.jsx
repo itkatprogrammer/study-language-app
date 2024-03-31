@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "../../General/Card/Card";
+import Card from './../../../components/General/Card/Card'
 import style from "./Slider.module.scss";
 
 export default function Slider({ data }) {

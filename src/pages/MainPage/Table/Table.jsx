@@ -1,11 +1,11 @@
 import React from "react";
-import TableRow from "../TableRow/TableRow";
-import data from "./../../../data";
-import st from "./Table.module.css";
+import TableRow from './../TableRow/TableRow'
+import data from './../../../data'
+import style from "./Table.module.css";
 
 export default function Table() {
   return (
-    <div className={st.table}>
+    <div className={style.table}>
       <table className='table'>
         <thead>
           <tr>

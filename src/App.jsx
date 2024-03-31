@@ -1,10 +1,10 @@
 // import st from "./styles/App.module.scss";
-import Header from "./Components/Header/Header";
-import MainPage from "./Components/MainPage/MainPage";
-import GamePage from "./Components/GamePage/GamePage";
-import CardsPage from "./Components/CardsPage/CardsPage";
-import Missing from "./Components/Missing/Missing";
-import Footer from "./Components/Footer/Footer";
+import Header from './components/Header/Header'
+import MainPage from './pages/MainPage/MainPage';
+import GamePage from './pages/GamePage/GamePage';
+import CardsPage from './pages/CardsPage/CardsPage';
+import Missing from './pages/Missing/Missing'
+import Footer from "./components/Footer/Footer";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 

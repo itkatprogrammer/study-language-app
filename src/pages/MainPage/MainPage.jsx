@@ -1,10 +1,10 @@
 import AddWord from "./AddWord/AddWord";
 import Table from "./Table/Table";
-import st from "./MainPage.module.scss";
+import style from "./MainPage.module.scss";
 
 export default function MainPage() {
   return (
-    <div className={st.mainPageBox}>
+    <div className={style.mainPageBox}>
       <AddWord />
       <Table />
     </div>

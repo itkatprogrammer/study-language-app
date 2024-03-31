@@ -1,11 +1,11 @@
 import React from "react";
 import AddCell from "../AddCell/AddCell";
-import Button from "./../../General/Button/Button";
-import st from "./AddWord.module.scss";
+import Button from './../../../components/General/Button/Button'
+import style from "./AddWord.module.scss";
 
 export default function AddWord() {
   return (
-    <div className={st.addWordBox}>
+    <div className={style.addWordBox}>
       <AddCell
         inputTitle='English'
         InputName='inputName'
