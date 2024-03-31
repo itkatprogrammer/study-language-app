@@ -1,10 +1,14 @@
 .addWordBox {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    margin: 0 auto;
-    max-width: 1200px;
+    // margin: 0 auto;
+    max-width: 1000px;
     gap: 30px;
+    background-color: RGB(30,24,52,0.68);
+    color: #cfc1c1;
+    padding: 10px 5px;
+    margin-left: 50px;
 }
 
 input {

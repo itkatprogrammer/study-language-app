@@ -1,25 +1,27 @@
 button {
     padding: 6px 38px;
-    outline: none;      
+    outline: none; 
+    color: #cfc1c1;    
 }
 
 .delete {
-    background: rgb(255 66 66 / 43%);
-    border: 1px solid #796060;
+    background: rgb(37 32 58 / 37%);
+    border: 1px solid #e30050;
 }
 
 .edit {
-    background:  rgb(206 167 0 / 60%);
-    border: 1px solid #b39d26;
+    background:  rgb(230 0 90 / 57%);
+    border: 1px solid rgb(37 32 58 / 95%);
 }
 
 .save,
 .add {
-    background-color:  rgb(15 137 61 / 42%);
-    border: 1px solid #2a791e;
+    background-color:  rgb(143 142 185 / 76%);;
+    border: 1px solid #cfc1c1;
 }
 
 .cancel {
-    background:rgb(59 148 171 / 51%);
-    border: 1px solid #606879;
+    background: rgb(220 0 64 / 53%);;
+    border: 1px solid #cfc1c1;
 }
+

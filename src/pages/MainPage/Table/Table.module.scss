@@ -1,25 +1,34 @@
-
-
 .table {
     border-collapse: collapse;
-    margin: 0 auto;
+    color: #cfc1c1;
+    min-width: 1000px;
+    margin-left: 50px;
+    // margin: 0 auto;
 }
 
-table, th, td {
-    border: 1px solid black;
+table{
+    min-width: 900px;
+    background-color: RGB(30,24,52,0.68);
     border-spacing: 0px;
-    min-width: 163px;
+    text-align: end;
 }
 
 td {
     display: table-cell;
     padding: 10px;
-    border: 1px solid black;
+    // border: 1px solid #947b7b;
     border-spacing: 0px;
     max-height: 30px;    
 }
 
 thead {
     padding: 5px 0px;
+    text-align: end;
+    color: #a49fb5;
 }
+
+table:last-child th:last-child {
+    text-align: center;
+}
+
 

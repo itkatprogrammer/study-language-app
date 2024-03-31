@@ -1,6 +1,12 @@
+@charset "UTF-8";
 .buttonManage {
   display: flex;
   justify-content: space-around;
-  gap: 27px;
   align-items: center;
+  gap: 10px;
+}
+
+input {
+  background-color: #f0f0f0;
+  /* Цвет фона инпута */
 }

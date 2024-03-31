@@ -1,6 +1,12 @@
 .buttonManage {
     display: flex;
     justify-content: space-around;
-    gap: 27px;
-    align-items: center;    
+    align-items: center;  
+    gap: 10px;  
+}
+
+input {
+    background-color: #60669d24;
+    color:#cfc1c1;
+    border:1px solid#cfc1c1;
 }

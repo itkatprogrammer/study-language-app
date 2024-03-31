@@ -1,1 +1,1 @@
-.mainPageBox{display:flex;flex-direction:column;justify-content:center;gap:35px;height:78vh}
+.mainPageBox{display:flex;flex-direction:column;justify-content:center;gap:35px;height:78vh;background-image:url("../../img/background.jpg");background-size:cover;background-position:center}
