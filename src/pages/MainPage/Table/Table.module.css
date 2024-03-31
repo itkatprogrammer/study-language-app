@@ -3,7 +3,6 @@
   color: #cfc1c1;
   min-width: 1000px;
   margin-left: 50px;
-  border-radius: 15px;
 }
 
 table {
@@ -11,6 +10,7 @@ table {
   background-color: RGB(30, 24, 52, 0.68);
   border-spacing: 0px;
   text-align: end;
+  border-radius: 15px;
 }
 
 td {
