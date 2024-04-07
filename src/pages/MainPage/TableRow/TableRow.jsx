@@ -1,21 +1,22 @@
 import React, { useState } from "react";
-import Button from './../../../components/General/Button/Button'
+import Button from "./../../../components/General/Button/Button";
 import style from "./TableRow.module.scss";
 
 export default function TableRow({ id, word, transcription, translation }) {
   const [isEditing, setIsEditing] = useState(false);
-  const handleEdit = (type) => {
-    setIsEditing(type === "edit" ? true : false);
-  };
-
-  // const [isCancelling, setIsCancelling] = useState(false);
-  // const handleCancel = (type) => {
-  //   setIsCancelling(type === "cancel" ? true : false);
-  // };
-
+  
   const [editedWord, setEditedWord] = useState(word);
   const [editedTranscription, setEditedTranscription] = useState(transcription);
   const [editedTranslation, setEditedTranslation] = useState(translation);
+
+  const [errors, setErrors] = useState({
+    name: false,
+    transcription: false,
+    translation: false
+  });
+
+  const isBtnDisabled = Object.values(errors).some((elem) => elem)
+
 
   const handleCancel = () => {
     setIsEditing(false);
@@ -25,8 +26,29 @@ export default function TableRow({ id, word, transcription, translation }) {
   };
 
   const handleSave = () => {
-    setIsEditing(false);
-  };
+    const nameError = !editedWord;
+    const transcriptionError = !editedTranscription;
+    const translationError = !editedTranslation;
+  
+    if (nameError || transcriptionError || translationError) {
+      console.log('Ошибка: Все поля должны быть заполнены');
+    } else {
+      console.log('Успешно сохранено:', {
+        id,
+        word: editedWord,
+        transcription: editedTranscription,
+        translation: editedTranslation
+      });
+  
+      setIsEditing(false);
+    }
+  
+    setErrors({
+      name: nameError,
+      transcription: transcriptionError,
+      translation: translationError
+    });
+};
 
   return (
     <tr>
@@ -34,9 +56,15 @@ export default function TableRow({ id, word, transcription, translation }) {
       <td>
         {isEditing ? (
           <input
-            type='text'
+            type="text"
+            name="name"
+            className={errors.name ? style.borderError : ""}
             value={editedWord}
-            onChange={(e) => setEditedWord(e.target.value)}
+            placeholder={errors.name ? "Данное поле не заполнено" : ""}
+            onChange={(e) => {
+              setEditedWord(e.target.value);
+              setErrors({ ...errors, name: !e.target.value.trim() });
+            }}
           />
         ) : (
           editedWord
@@ -45,10 +73,14 @@ export default function TableRow({ id, word, transcription, translation }) {
       <td>
         {isEditing ? (
           <input
-            type='text'
+            type="text"
+            name="transcription"
+            className={errors.transcription ? style.borderError : ""}
             value={editedTranscription}
+            placeholder={errors.transcription ? "Данное поле не заполнено" : ""}
             onChange={(e) => {
               setEditedTranscription(e.target.value);
+              setErrors({ ...errors, transcription: !e.target.value.trim() });
             }}
           />
         ) : (
@@ -58,10 +90,14 @@ export default function TableRow({ id, word, transcription, translation }) {
       <td>
         {isEditing ? (
           <input
-            type='text'
+            type="text"
+            name="translation"
+            className={errors.translation ? style.borderError : ""}
             value={editedTranslation}
+            placeholder={errors.translation ? "Данное поле не заполнено" : ""}
             onChange={(e) => {
               setEditedTranslation(e.target.value);
+              setErrors({ ...errors, translation: !e.target.value.trim() });
             }}
           />
         ) : (
@@ -71,21 +107,16 @@ export default function TableRow({ id, word, transcription, translation }) {
       <td className={style.buttonManage}>
         {isEditing ? (
           <>
-            <Button type='save' buttonName='save' onClick={handleSave} />
-            <Button type='cancel' buttonName='cancel' onClick={handleCancel} />
+            <Button type="save" buttonName="save" onClick={handleSave} disabled={isBtnDisabled} />
+            <Button type="cancel" buttonName="cancel" onClick={handleCancel} />
           </>
         ) : (
           <>
-            <Button type='edit' buttonName='edit' onClick={handleEdit} />
-            <Button type='delete' buttonName='delete' />
+            <Button type="edit" buttonName="edit" onClick={() => setIsEditing(true)} />
+            <Button type="delete" buttonName="delete" />
           </>
         )}
       </td>
     </tr>
   );
-}
-
-{
-  /* <Button type='edit' buttonName='edit' />
-        <Button type='delete' buttonName='delete' /> */
 }

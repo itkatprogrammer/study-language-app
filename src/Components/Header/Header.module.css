@@ -3,15 +3,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #beb8b8;
   max-height: 93px;
   height: 9vh;
+  background: rgba(94, 16, 62, 0.7490196078);
 }
 
 .header.fixedHeader {
   position: fixed;
   top: 0;
-  background-color: white;
   z-index: 1000;
 }
 
@@ -30,14 +29,16 @@
   display: flex;
   gap: 37px;
 }
-
 .nav a {
   text-decoration: none;
-  color: #494242;
+  color: #d4cccc;
   font-size: 18px;
   transition: font-size 0.7s ease;
 }
-
 .nav a:hover {
   font-size: 20px;
 }
+
+.header__listItem {
+  color: red;
+}/*# sourceMappingURL=Header.module.css.map */

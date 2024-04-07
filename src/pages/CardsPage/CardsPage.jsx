@@ -14,15 +14,20 @@ export default function CardsPage() {
 
 
   return (
-    <div>
-      
+    <div className={style.cardsListBg}>
+
       <div className={style.cardsList}>
-      <p>Изучено слов: {learnedWords}</p>
-        {
-          data.map(word => (
-            <Card key={word.id} word={word.word} transcription={word.transcription} translation={word.translation} handleChecked={handleChecked} />
-          ))
-        }
+        <div className='headerName'>
+          <p>Изучено слов: {learnedWords}</p>
+        </div>
+
+        <div className={style.cardsLine}>
+          {
+            data.map(word => (
+              <Card key={word.id} word={word.word} transcription={word.transcription} translation={word.translation} handleChecked={handleChecked} className={style.card} />
+            ))
+          }
+        </div>
       </div>
     </div>
 

@@ -1,0 +1,32 @@
+button {
+  padding: 6px 38px;
+  outline: none;
+  color: #cfc1c1;
+}
+
+.delete {
+  background: rgba(37, 32, 58, 0.37);
+  border: 1px solid #e30050;
+}
+
+.edit {
+  background: rgba(230, 0, 90, 0.57);
+  border: 1px solid rgba(37, 32, 58, 0.95);
+}
+
+.save,
+.add {
+  background-color: rgba(143, 142, 185, 0.76);
+  border: 1px solid #cfc1c1;
+}
+
+.cancel {
+  background: rgba(220, 0, 64, 0.53);
+  border: 1px solid #cfc1c1;
+}
+
+.disabled {
+  background-color: rgba(165, 156, 156, 0.42);
+  border: none;
+  color: rgba(207, 193, 193, 0.7098039216);
+}/*# sourceMappingURL=Button.module.css.map */

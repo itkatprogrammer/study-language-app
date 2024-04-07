@@ -29,12 +29,12 @@ const words = [
     transcription: "[frendz]",
     translation: "друзья",
   },
-  {
-    id: 6,
-    word: "education",
-    transcription: "education",
-    translation: "образование",
-  },
+  // {
+  //   id: 6,
+  //   word: "education",
+  //   transcription: "education",
+  //   translation: "образование",
+  // },
 ];
 
 export default words;

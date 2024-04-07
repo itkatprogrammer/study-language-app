@@ -1,10 +1,19 @@
 .addWordBox {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  max-width: 1000px;
+  gap: 30px;
+  background-color: RGB(30, 24, 52, 0.68);
+  color: #cfc1c1;
+  padding: 10px 5px;
+  margin-left: 50px;
+  border-radius: 15px;
 }
 
 input {
-  padding: 6px 11px;
+  padding: 8px 11px;
   border-radius: 8px;
-}
+  border: 1px solid rgb(85, 76, 76);
+  cursor: pointer;
+}/*# sourceMappingURL=AddWord.module.css.map */

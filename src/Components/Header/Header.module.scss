@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #beb8b8;
     max-height: 93px;
     height: 9vh;
     background: #5e103ebf;
@@ -14,7 +13,6 @@
 .header.fixedHeader {
     position: fixed;
     top: 0;
-    background-color: white;
     z-index: 1000;
 }
 
@@ -34,7 +32,7 @@ margin: 0px 100px 0px;
     gap: 37px;
     a {
         text-decoration: none;
-        color: #494242;
+        color: #d4cccc;
         font-size: 18px;
         transition: font-size 0.7s ease;
         &:hover {
@@ -43,7 +41,7 @@ margin: 0px 100px 0px;
     }  
 }
 
-
-.header__list-item {
+//не работает
+.header__listItem {
     color: red;
   }

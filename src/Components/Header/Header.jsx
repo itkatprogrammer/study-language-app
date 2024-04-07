@@ -28,13 +28,13 @@ export default function Header() {
         <div className={style.headerContent}>
           <Logo />
           <nav className={style.nav}>
-            <Link to='/' className='header__list-item'>
+            <Link to='/' className={style.header__listItem}>
               Dictionary
             </Link>
-            <Link to='/cards' className='header__list-item'>
+            <Link to='/cards' className={style.header__listItem}>
               Cards
             </Link>
-            <Link to='/game' className='header__list-item'>
+            <Link to='/game' className={style.header__listItem}>
               Game
             </Link>
           </nav>
