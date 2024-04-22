@@ -1,26 +1,32 @@
 .sliderBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 78vh;
+  .slider {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    height: 78vh;
-    .slider {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-    }
+    gap: 30px;
+  }
 }
 
 .buttonRadius {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px; 
-    height: 80px;
-    border-radius: 50%; 
-    background-color: #b9b9b9;
-    border: none;
-    cursor: pointer; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #b9b9b9;
+  color: #1a1a1a;
+  border: none;
+  cursor: pointer;
 }
 
+button:disabled {
+  color: #999;
+  background-color: #ccc;
+  cursor: not-allowed;
+}

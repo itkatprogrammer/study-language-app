@@ -1,19 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import style from "./Card.module.scss";
 
-export default function Card({ word, transcription, translation, handleChecked }) {
+export default function Card({ word, transcription, translation, handleChecked, isActive }) {
+  
   const [isClicked, setIsClicked] = useState(false);
   const buttonRef = useRef(null);
 
   useEffect(() => {
-    if (buttonRef.current) {
+    if (isActive) {
       buttonRef.current.focus();
     }
-  }, [word]);
+  }, [isActive]);
 
   const handleClick = () => {
     setIsClicked(!isClicked);
-    handleChecked()
+    handleChecked(id)
   };
 
   return (
@@ -27,7 +28,7 @@ export default function Card({ word, transcription, translation, handleChecked }
             {translation}
           </p>
         ) : (
-          <button onClick={handleClick} className={style.checkBtn}>
+          <button ref={buttonRef} onClick={handleClick} className={style.checkBtn}>
             Проверить
           </button>
         )}
@@ -36,11 +37,3 @@ export default function Card({ word, transcription, translation, handleChecked }
   );
 }
 
-{
-  /* <button
-        className={isClicked ? st.checkBtn : st.translation}
-        onClick={handleClick}
-      >
-        {isClicked ? <p>{translation}</p> : <p>Проверить</p>}
-      </button> */
-}

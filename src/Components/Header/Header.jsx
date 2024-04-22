@@ -44,14 +44,3 @@ export default function Header() {
   );
 }
 
-{
-  /* <Link to='/' className='header__list-item'>
-          Dictionary
-        </Link>
-        <Link to='/cards' className='header__list-item'>
-          Cards
-        </Link>
-        <Link to='/game' className='header__list-item'>
-          Game
-        </Link>*/
-}

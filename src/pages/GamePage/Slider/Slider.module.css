@@ -5,6 +5,7 @@
   flex-direction: column;
   height: 78vh;
 }
+
 .sliderBox .slider {
   display: flex;
   align-items: center;
@@ -20,6 +21,13 @@
   height: 80px;
   border-radius: 50%;
   background-color: #b9b9b9;
+  color: #1a1a1a;
   border: none;
   cursor: pointer;
-}/*# sourceMappingURL=Slider.module.css.map */
+}
+
+button:disabled {
+  color: #999;
+  background-color: #ccc;
+  cursor: not-allowed;
+}

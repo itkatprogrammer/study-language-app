@@ -1,26 +1,28 @@
-import React, { useState } from "react";
-import Card from './../../../components/General/Card/Card'
-import style from "./Slider.module.scss";
+import React, { useState, useEffect } from 'react';
+import Card from './../../../components/General/Card/Card';
+import style from './Slider.module.scss';
 
 export default function Slider({ data }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFirstCard, setIsFirstCard] = useState(true);
+  const [isLastCard, setIsLastCard] = useState(false);
+
+  useEffect(() => {
+    setIsFirstCard(currentIndex === 0);
+    setIsLastCard(currentIndex === data.length - 1);
+  }, [currentIndex, data]);
 
   const handlePrev = () => {
-    setCurrentIndex(Math.max(currentIndex - 1, 0));
+    setCurrentIndex(currentIndex - 1);
   };
 
   const handleNext = () => {
-    setCurrentIndex(Math.min(currentIndex + 1, data.length - 1));
+    setCurrentIndex(currentIndex + 1);
   };
 
-  // const [isDisabled, setIsDisabled] = useState(false);
-
-  // const handleWordsFinished = () => {
-  //   setIsDisabled(currentIndex === 0 || currentIndex === data.length - 1);
-  // };
-
-  const isFirstCard = currentIndex === 0;
-  const isLastCard = currentIndex === data.length - 1;
+  const isAcvtive = (cardId) => {
+    return currentIndex === cardId - 1;
+  };
 
   return (
     <div className={style.sliderBox}>
@@ -38,12 +40,14 @@ export default function Slider({ data }) {
         {data.map((card, index) => (
           <div
             key={index}
-            style={{ display: index === currentIndex ? "block" : "none" }}
+            style={{ display: index === currentIndex ? 'block' : 'none' }}
           >
             <Card
+              id={card.id}
               word={card.word}
               transcription={card.transcription}
               translation={card.translation}
+              isActive={isAcvtive(card.id)}
             />
           </div>
         ))}

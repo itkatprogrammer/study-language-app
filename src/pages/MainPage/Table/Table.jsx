@@ -1,9 +1,15 @@
-import React from "react";
-import TableRow from './../TableRow/TableRow'
-import data from './../../../data'
-import style from "./Table.module.css";
+import React, { useState } from 'react';
+import TableRow from './../TableRow/TableRow';
+import data from './../../../data';
+import style from './Table.module.css';
 
 export default function Table() {
+  const [dataRow, setDataRow] = useState(data);
+
+  const deleteDataRow = (id) => {
+    setDataRow((prevDataRow) => prevDataRow.filter((word) => word.id !== id));
+  };
+
   return (
     <div className={style.table}>
       <table className='table'>
@@ -17,8 +23,8 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          {data.map((word) => (
-            <TableRow key={word.id} {...word} />
+          {dataRow.map((word) => (
+            <TableRow key={word.id} {...word} deleteDataRow={deleteDataRow} />
           ))}
         </tbody>
       </table>

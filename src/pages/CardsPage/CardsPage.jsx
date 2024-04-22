@@ -6,10 +6,10 @@ import style from './CardsPage.module.scss'
 
 export default function CardsPage() {
 
-  const [learnedWords, setLearnedWords] = useState(0)
+  const [learnedWords, setLearnedWords] = useState(new Set())
 
-  const handleChecked = () => {
-    setLearnedWords(learnedWords + 1)
+  const handleChecked = (id) => {
+    setLearnedWords(prevWords => new Set([...prevWords, id]))
   }
 
 
@@ -18,7 +18,7 @@ export default function CardsPage() {
 
       <div className={style.cardsList}>
         <div className='headerName'>
-          <p>Изучено слов: {learnedWords}</p>
+          <p>Изучено слов: {learnedWords.size}</p>
         </div>
 
         <div className={style.cardsLine}>
