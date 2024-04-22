@@ -1,9 +1,8 @@
 .addWordBox {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  max-width: 1000px;
-  gap: 30px;
+  justify-content: space-around;
+  align-items: flex-end;
+  max-width: 890px;
   background-color: RGB(30, 24, 52, 0.68);
   color: #cfc1c1;
   padding: 10px 5px;

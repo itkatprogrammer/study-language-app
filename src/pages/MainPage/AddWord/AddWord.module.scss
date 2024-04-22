@@ -1,20 +1,20 @@
 .addWordBox {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    // margin: 0 auto;
-    max-width: 1000px;
-    gap: 30px;
-    background-color: RGB(30,24,52,0.68);
-    color: #cfc1c1;
-    padding: 10px 5px;
-    margin-left: 50px;
-    border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  // margin: 0 auto;
+  max-width: 890px;
+  //   gap: 70px;
+  background-color: RGB(30, 24, 52, 0.68);
+  color: #cfc1c1;
+  padding: 10px 5px;
+  margin-left: 50px;
+  border-radius: 15px;
 }
 
 input {
-    padding: 8px 11px;
-    border-radius: 8px;
-    border: 1px solid rgb(85 76 76);
-    cursor: pointer;
+  padding: 8px 11px;
+  border-radius: 8px;
+  border: 1px solid rgb(85 76 76);
+  cursor: pointer;
 }
