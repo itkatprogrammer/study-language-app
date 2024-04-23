@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import Logo from "./Logo/Logo";
-import style from "./Header.module.scss";
+import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import Logo from './Logo/Logo';
+import style from './Header.module.scss';
 
 export default function Header() {
   const [isScrolled, setISScrollde] = useState(false);
@@ -15,18 +15,20 @@ export default function Header() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-    <div className={`${style.header} ${isScrolled ? style.fixedHeader : ""}`}>
+    <div className={`${style.header} ${isScrolled ? style.fixedHeader : ''}`}>
       <div>
         <div className={style.headerContent}>
-          <Logo />
+          <Link to='/'>
+            <Logo />
+          </Link>
           <nav className={style.nav}>
             <Link to='/' className={style.header__listItem}>
               Dictionary
@@ -43,4 +45,3 @@ export default function Header() {
     </div>
   );
 }
-

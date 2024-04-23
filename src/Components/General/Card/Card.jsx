@@ -1,9 +1,15 @@
-import React, { useState, useEffect, useRef } from "react";
-import style from "./Card.module.scss";
+import React, { useState, useEffect, useRef } from 'react';
+import style from './Card.module.scss';
 
-export default function Card({ word, transcription, translation, handleChecked, isActive }) {
-  
+export default function Card({
+  word,
+  transcription,
+  translation,
+  handleCheck,
+  isActive,
+}) {
   const [isClicked, setIsClicked] = useState(false);
+
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -14,7 +20,7 @@ export default function Card({ word, transcription, translation, handleChecked, 
 
   const handleClick = () => {
     setIsClicked(!isClicked);
-    handleChecked(id)
+    handleCheck();
   };
 
   return (
@@ -28,7 +34,11 @@ export default function Card({ word, transcription, translation, handleChecked, 
             {translation}
           </p>
         ) : (
-          <button ref={buttonRef} onClick={handleClick} className={style.checkBtn}>
+          <button
+            ref={buttonRef}
+            onClick={handleClick}
+            className={style.checkBtn}
+          >
             Проверить
           </button>
         )}
@@ -36,4 +46,3 @@ export default function Card({ word, transcription, translation, handleChecked, 
     </div>
   );
 }
-
