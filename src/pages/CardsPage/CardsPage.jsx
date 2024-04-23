@@ -27,6 +27,7 @@ export default function CardsPage() {
           {data.map((word) => (
             <Card
               key={word.id}
+              id={word.id}
               word={word.word}
               transcription={word.transcription}
               translation={word.translation}

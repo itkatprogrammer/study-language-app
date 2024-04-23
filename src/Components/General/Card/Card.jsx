@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import style from './Card.module.scss';
 
 export default function Card({
+  id,
   word,
   transcription,
   translation,
@@ -20,7 +21,7 @@ export default function Card({
 
   const handleClick = () => {
     setIsClicked(!isClicked);
-    handleCheck();
+    handleCheck(id);
   };
 
   return (
