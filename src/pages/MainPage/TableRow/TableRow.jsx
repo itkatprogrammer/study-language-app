@@ -205,7 +205,7 @@ export default function TableRow({
         {isEditing ? (
           <input
             type='text'
-            name='name'
+            name='word'
             className={wordError ? style.borderError : ''}
             value={editedWord}
             placeholder={wordError ? 'Данное поле не заполнено' : ''}
