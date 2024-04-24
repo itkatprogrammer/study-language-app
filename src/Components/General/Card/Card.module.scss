@@ -1,33 +1,38 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid black;
-    background: linear-gradient(to bottom right, rgb(233 231 231 / 58%), rgb(255 255 255 / 68%));
-    // background-color: #0082aa;
-    width: 197px;
-    min-height: 180px;
-    border-radius: 8px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  background: linear-gradient(
+    to bottom right,
+    rgb(233 231 231 / 58%),
+    rgb(255 255 255 / 68%)
+  );
+  // background-color: #0082aa;
+  width: 197px;
+  min-height: 180px;
+  border-radius: 8px;
+  margin: 0 auto;
 }
-
 
 .translation {
-    // padding: 20px;
-    color: #e30050;
-    font-weight: 700;
-    font-size: 20px;
+  // padding: 20px;
+  color: #e30050;
+  font-weight: 700;
+  font-size: 20px;
 }
 
-.checkBtn{
-    margin: 20px;
-    background: #69b169;
-    background: black;
+.checkBtn {
+  margin: 20px;
+  background: #69b169;
+  background: black;
+  border: none;
+  &:active {
+    outline: none;
     border: none;
-    &:active {
-        outline: none;
-        border: none;
-    }
+  }
 }
 
-
+.checkBtn:focus {
+  outline: 2px solid rgb(156, 85, 132); /* Изменить цвет и толщину обводки фокуса */
+}
