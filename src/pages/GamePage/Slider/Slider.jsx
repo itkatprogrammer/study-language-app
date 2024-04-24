@@ -20,7 +20,7 @@ export default function Slider({ data }) {
     setCurrentIndex(currentIndex + 1);
   };
 
-  const isAcvtive = (cardId) => {
+  const isActive = (cardId) => {
     return currentIndex === cardId - 1;
   };
 
@@ -47,7 +47,7 @@ export default function Slider({ data }) {
               word={card.word}
               transcription={card.transcription}
               translation={card.translation}
-              isActive={isAcvtive(card.id)}
+              isActive={isActive(card.id)}
             />
           </div>
         ))}
