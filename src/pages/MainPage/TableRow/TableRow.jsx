@@ -160,6 +160,10 @@ export default function TableRow({
   const [transcriptionError, setTranscriptionError] = useState(false);
   const [translationError, setTranslationError] = useState(false);
 
+  const [latinInput, setLatinInput] = useState('');
+  const [bracketsInput, setBracketsInput] = useState('');
+  const [cyrillicInput, setCyrillicInput] = useState('');
+
   const handleCancel = () => {
     setIsEditing(false);
     setEditedWord(word);
@@ -262,7 +266,14 @@ export default function TableRow({
               type='save'
               buttonName='save'
               onClick={handleSave}
-              disabled={wordError || transcriptionError || translationError}
+              disabled={
+                wordError ||
+                transcriptionError ||
+                translationError ||
+                latinInput ||
+                bracketsInput ||
+                cyrillicInput
+              }
             />
             <Button type='cancel' buttonName='cancel' onClick={handleCancel} />
           </>
