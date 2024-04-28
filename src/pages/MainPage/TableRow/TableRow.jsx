@@ -6,60 +6,90 @@ export default function TableRow({
   id,
   english,
   transcription,
-  russian,
+  translation,
   deleteDataRow,
 }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const [editedWord, setEditedWord] = useState(english);
   const [editedTranscription, setEditedTranscription] = useState(transcription);
-  const [editedTranslation, setEditedTranslation] = useState(russian);
+  const [editedTranslation, setEditedTranslation] = useState(translation);
 
   const [wordError, setWordError] = useState(false);
   const [transcriptionError, setTranscriptionError] = useState(false);
   const [translationError, setTranslationError] = useState(false);
 
-  const [latinInput, setLatinInput] = useState('');
-  const [bracketsInput, setBracketsInput] = useState('');
-  const [cyrillicInput, setCyrillicInput] = useState('');
+  // const [latinInput, setLatinInput] = useState('');
+  // const [bracketsInput, setBracketsInput] = useState('');
+  // const [cyrillicInput, setCyrillicInput] = useState('');
 
   const handleCancel = () => {
     setIsEditing(false);
-    setEditedWord(english); //word
+    setEditedWord(word);
     setEditedTranscription(transcription);
-    setEditedTranslation(russian); //translation
+    setEditedTranslation(translation);
   };
 
-  const handleSave = () => {
+  // const handleSave = () => {
+  //   const updatedData = {
+  //     id,
+  //     english: editedWord,
+  //     transcription: editedTranscription,
+  //     translation: editedTranslation,
+  //   };
+  //   setIsEditing(false);
+  // };
+
+  const handleSave = async () => {
     const updatedData = {
       id,
       english: editedWord,
       transcription: editedTranscription,
       translation: editedTranslation,
     };
-    setIsEditing(false);
-  };
 
-  const handleLatinInputChange = (e) => {
-    const value = e.target.value;
-    if (/^[a-zA-Z ]*$/.test(value)) {
-      setLatinInput(value);
+    try {
+      const resp = await fetch(
+        `http://itgirlschool.justmakeit.ru/api/words/${id}/update`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedData),
+        }
+      );
+
+      if (!resp.ok) {
+        throw new Error('Failed to update data');
+      }
+
+      setIsEditing(false);
+    } catch (error) {
+      console.error('Error updating data', error);
     }
   };
 
-  const handleBracketsInputChange = (e) => {
-    const value = e.target.value;
-    if (/\[.*\]/.test(value)) {
-      setBracketsInput(value);
-    }
-  };
+  // const handleLatinInputChange = (e) => {
+  //   const value = e.target.value;
+  //   if (/^[a-zA-Z ]*$/.test(value)) {
+  //     setLatinInput(value);
+  //   }
+  // };
 
-  const handleCyrillicInputChange = (e) => {
-    const value = e.target.value;
-    if (/^[а-яА-Я ]*$/.test(value)) {
-      setCyrillicInput(value);
-    }
-  };
+  // const handleBracketsInputChange = (e) => {
+  //   const value = e.target.value;
+  //   if (/\[.*\]/.test(value)) {
+  //     setBracketsInput(value);
+  //   }
+  // };
+
+  // const handleCyrillicInputChange = (e) => {
+  //   const value = e.target.value;
+  //   if (/^[а-яА-Я ]*$/.test(value)) {
+  //     setCyrillicInput(value);
+  //   }
+  // };
 
   return (
     <tr>
@@ -75,7 +105,7 @@ export default function TableRow({
             onChange={(e) => {
               setEditedWord(e.target.value);
               setWordError(!e.target.value.trim() || e.target.value.trim());
-              handleLatinInputChange(e);
+              // handleLatinInputChange(e);
             }}
           />
         ) : (
@@ -93,7 +123,7 @@ export default function TableRow({
             onChange={(e) => {
               setEditedTranscription(e.target.value);
               setTranscriptionError(!e.target.value.trim());
-              handleBracketsInputChange(e);
+              // handleBracketsInputChange(e);
             }}
           />
         ) : (
@@ -111,7 +141,7 @@ export default function TableRow({
             onChange={(e) => {
               setEditedTranslation(e.target.value);
               setTranslationError(!e.target.value.trim());
-              handleCyrillicInputChange(e);
+              // handleCyrillicInputChange(e);
             }}
           />
         ) : (
@@ -126,12 +156,10 @@ export default function TableRow({
               buttonName='save'
               onClick={handleSave}
               disabled={
-                wordError ||
-                transcriptionError ||
-                translationError ||
-                latinInput ||
-                bracketsInput ||
-                cyrillicInput
+                wordError || transcriptionError || translationError
+                // latinInput ||
+                // bracketsInput ||
+                // cyrillicInput
               }
             />
             <Button type='cancel' buttonName='cancel' onClick={handleCancel} />

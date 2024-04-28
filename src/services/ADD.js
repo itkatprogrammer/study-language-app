@@ -1,4 +1,4 @@
-class POST {
+class ADD {
     static async addWord(newWord) {
         try {
             const resp = await fetch('http://itgirlschool.justmakeit.ru/api/words/add', {
@@ -16,4 +16,4 @@ class POST {
     }
 }
 
-export default POST;
+export default ADD;

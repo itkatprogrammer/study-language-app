@@ -1,5 +1,4 @@
 import TableRow from './../TableRow/TableRow';
-// import data from './../../../data';
 import style from './Table.module.css';
 import { DataServerContext } from '../../../context/DataServerContext';
 import { useContext } from 'react';
@@ -7,10 +6,27 @@ import { useContext } from 'react';
 export default function Table() {
   const { dataServer, setDataServer } = useContext(DataServerContext);
 
-  function deleteDataRow(id) {
-    const filterData = dataServer.filter((user) => user.id !== id);
-    setDataServer(filterData);
-  }
+  const handleDeleteRow = async (wordId) => {
+    try {
+      const resp = await fetch(
+        `http://itgirlschool.justmakeit.ru/api/words/${wordId}`,
+        {
+          method: 'DELETE',
+        }
+      );
+
+      if (!resp.ok) {
+        throw new Error('Failled to delete table tow');
+      }
+
+      console.log(resp.status);
+
+      //Света: если задача успешно удалена на сервере, удаляем ее локально
+      setDataServer(dataServer.filter((word) => word.id !== wordId));
+    } catch (error) {
+      console.error('Error deleting table row', error);
+    }
+  };
 
   return (
     <div className={style.table}>
@@ -30,7 +46,7 @@ export default function Table() {
               <TableRow
                 key={word.id}
                 {...word}
-                deleteDataRow={() => deleteDataRow(word.id)}
+                deleteDataRow={() => handleDeleteRow(word.id)}
               />
             ))}
         </tbody>
