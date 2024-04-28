@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
 import TableRow from './../TableRow/TableRow';
-import data from './../../../data';
+// import data from './../../../data';
 import style from './Table.module.css';
+import { DataServerContext } from '../../../context/DataServerContext';
+import { useContext } from 'react';
 
 export default function Table() {
-  const [dataRow, setDataRow] = useState(data);
+  const { dataServer, setDataServer } = useContext(DataServerContext);
 
-  const deleteDataRow = (id) => {
-    setDataRow((prevDataRow) => prevDataRow.filter((word) => word.id !== id));
-  };
+  function deleteDataRow(id) {
+    const filterData = dataServer.filter((user) => user.id !== id);
+    setDataServer(filterData);
+  }
 
   return (
     <div className={style.table}>
@@ -23,9 +25,14 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          {dataRow.map((word) => (
-            <TableRow key={word.id} {...word} deleteDataRow={deleteDataRow} />
-          ))}
+          {dataServer &&
+            dataServer.map((word) => (
+              <TableRow
+                key={word.id}
+                {...word}
+                deleteDataRow={() => deleteDataRow(word.id)}
+              />
+            ))}
         </tbody>
       </table>
     </div>

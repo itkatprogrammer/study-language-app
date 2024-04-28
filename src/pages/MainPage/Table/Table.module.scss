@@ -1,36 +1,36 @@
 .table {
-    border-collapse: collapse;
-    color: #cfc1c1;
-    min-width: 1000px;
-    margin-left: 50px;
-   
-    // margin: 0 auto;
+  border-collapse: collapse;
+  color: #cfc1c1;
+  min-width: 1000px;
+  margin-left: 50px;
+  max-height: 50vh;
+  overflow: auto;
+
+  // margin: 0 auto;
 }
 
-table{
-    min-width: 900px;
-    background-color: RGB(30,24,52,0.68);
-    border-spacing: 0px;
-    text-align: end;
-    border-radius: 15px;
+table {
+  min-width: 900px;
+  background-color: RGB(30, 24, 52, 0.68);
+  border-spacing: 0px;
+  text-align: end;
+  border-radius: 15px;
 }
 
 td {
-    display: table-cell;
-    padding: 10px;
-    // border: 1px solid #947b7b;
-    border-spacing: 0px;
-    max-height: 30px;    
+  display: table-cell;
+  padding: 10px;
+  // border: 1px solid #947b7b;
+  border-spacing: 0px;
+  max-height: 30px;
 }
 
 thead {
-    padding: 5px 0px;
-    text-align: end;
-    color: #a49fb5;
+  padding: 5px 0px;
+  text-align: end;
+  color: #a49fb5;
 }
 
 table:last-child th:last-child {
-    text-align: center;
+  text-align: center;
 }
-
-
