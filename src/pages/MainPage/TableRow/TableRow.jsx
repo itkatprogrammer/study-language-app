@@ -6,14 +6,14 @@ export default function TableRow({
   id,
   english,
   transcription,
-  translation,
+  russian,
   deleteDataRow,
 }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const [editedWord, setEditedWord] = useState(english);
   const [editedTranscription, setEditedTranscription] = useState(transcription);
-  const [editedTranslation, setEditedTranslation] = useState(translation);
+  const [editedTranslation, setEditedTranslation] = useState(russian);
 
   const [wordError, setWordError] = useState(false);
   const [transcriptionError, setTranscriptionError] = useState(false);
@@ -36,9 +36,9 @@ export default function TableRow({
 
   const handleCancel = () => {
     setIsEditing(false);
-    setEditedWord(word);
+    setEditedWord(english);
     setEditedTranscription(transcription);
-    setEditedTranslation(translation);
+    setEditedTranslation(russian);
   };
 
   const handleSave = async () => {
@@ -46,7 +46,7 @@ export default function TableRow({
       id,
       english: editedWord,
       transcription: editedTranscription,
-      translation: editedTranslation,
+      russian: editedTranslation,
     };
 
     try {
