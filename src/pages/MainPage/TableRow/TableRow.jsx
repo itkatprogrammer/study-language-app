@@ -71,27 +71,6 @@ export default function TableRow({
     }
   };
 
-  // const handleLatinInputChange = (e) => {
-  //   const value = e.target.value;
-  //   if (/^[a-zA-Z ]*$/.test(value)) {
-  //     setLatinInput(value);
-  //   }
-  // };
-
-  // const handleBracketsInputChange = (e) => {
-  //   const value = e.target.value;
-  //   if (/\[.*\]/.test(value)) {
-  //     setBracketsInput(value);
-  //   }
-  // };
-
-  // const handleCyrillicInputChange = (e) => {
-  //   const value = e.target.value;
-  //   if (/^[а-яА-Я ]*$/.test(value)) {
-  //     setCyrillicInput(value);
-  //   }
-  // };
-
   return (
     <tr>
       <td>{id}</td>
