@@ -1,10 +1,10 @@
 import TableRow from './../TableRow/TableRow';
 import style from './Table.module.css';
-import { DataServerContext } from '../../../context/DataServerContext';
+import { WordServerContext } from '../../../context/WordServerContext';
 import { useContext } from 'react';
 
 export default function Table() {
-  const { dataServer, setDataServer } = useContext(DataServerContext);
+  const { dataServer, setDataServer } = useContext(WordServerContext);
 
   const handleDeleteRow = async (wordId) => {
     try {

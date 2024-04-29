@@ -1,9 +1,9 @@
 import { createContext, useState, useEffect } from 'react';
 import GET from '../services/GET';
 
-export const DataServerContext = createContext();
+export const WordServerContext = createContext();
 
-export function DataServerProvider({ children }) {
+export function WordServerProvider({ children }) {
   const [dataServer, setDataServer] = useState(false);
   const value = { dataServer, setDataServer };
 
@@ -21,8 +21,8 @@ export function DataServerProvider({ children }) {
   }
 
   return (
-    <DataServerContext.Provider value={value}>
+    <WordServerContext.Provider value={value}>
       {children}
-    </DataServerContext.Provider>
+    </WordServerContext.Provider>
   );
 }
