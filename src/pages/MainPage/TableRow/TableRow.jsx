@@ -19,6 +19,21 @@ export default function TableRow({
   const [transcriptionError, setTranscriptionError] = useState(false);
   const [translationError, setTranslationError] = useState(false);
 
+  const sumWordErrors = (e) => {
+    const value = e.target.value;
+    setWordError(!/^[a-zA-Z ]*$/.test(value) || !value.trim());
+  };
+
+  const sumTranscriptionErrors = (e) => {
+    const value = e.target.value;
+    setTranscriptionError(!/\[.*\]/.test(value) || !value.trim());
+  };
+
+  const sumTranslationErrors = (e) => {
+    const value = e.target.value;
+    setTranslationError(!/^[а-яА-Я ]*$/.test(value) || !value.trim());
+  };
+
   const handleCancel = () => {
     setIsEditing(false);
     setEditedWord(word);
@@ -49,8 +64,7 @@ export default function TableRow({
             placeholder={wordError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
               setEditedWord(e.target.value);
-              setWordError(!e.target.value.trim());
-              // handleLatinInputChange(e);
+              sumWordErrors(e);
             }}
           />
         ) : (
@@ -67,8 +81,7 @@ export default function TableRow({
             placeholder={transcriptionError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
               setEditedTranscription(e.target.value);
-              setTranscriptionError(!e.target.value.trim());
-              // handleBracketsInputChange(e);
+              sumTranscriptionErrors(e);
             }}
           />
         ) : (
@@ -85,8 +98,7 @@ export default function TableRow({
             placeholder={translationError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
               setEditedTranslation(e.target.value);
-              setTranslationError(!e.target.value.trim());
-              // handleCyrillicInputChange(e);
+              sumTranslationErrors(e);
             }}
           />
         ) : (
@@ -100,12 +112,7 @@ export default function TableRow({
               type='save'
               buttonName='save'
               onClick={handleSave}
-              disabled={
-                wordError || transcriptionError || translationError
-                // latinInput ||
-                // bracketsInput ||
-                // cyrillicInput
-              }
+              disabled={wordError || transcriptionError || translationError}
             />
             <Button type='cancel' buttonName='cancel' onClick={handleCancel} />
           </>
@@ -127,28 +134,3 @@ export default function TableRow({
     </tr>
   );
 }
-
-// const [latinInput, setLatinInput] = useState('');
-// const [bracketsInput, setBracketsInput] = useState('');
-// const [cyrillicInput, setCyrillicInput] = useState('');
-
-// const handleLatinInputChange = (e) => {
-//   const value = e.target.value;
-//   if (/^[a-zA-Z ]*$/.test(value)) {
-//     setLatinInput(value);
-//   }
-// };
-
-// const handleBracketsInputChange = (e) => {
-//   const value = e.target.value;
-//   if (/\[.*\]/.test(value)) {
-//     setBracketsInput(value);
-//   }
-// };
-
-// const handleCyrillicInputChange = (e) => {
-//   const value = e.target.value;
-//   if (/^[а-яА-Я ]*$/.test(value)) {
-//     setCyrillicInput(value);
-//   }
-// };
