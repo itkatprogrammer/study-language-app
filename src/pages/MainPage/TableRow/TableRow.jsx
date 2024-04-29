@@ -49,7 +49,7 @@ export default function TableRow({
             placeholder={wordError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
               setEditedWord(e.target.value);
-              setWordError(!e.target.value.trim() || e.target.value.trim());
+              setWordError(!e.target.value.trim());
               // handleLatinInputChange(e);
             }}
           />
