@@ -33,6 +33,9 @@ export default function AddWord() {
       russian: russian,
     };
 
+    // Добавляем console.log для проверки ввода newWord
+    console.log('New word to add:', newWordToSend);
+
     addWord(newWordToSend);
 
     SetNewWord({
@@ -48,22 +51,22 @@ export default function AddWord() {
         inputId='english'
         inputTitle='English'
         InputName='english'
-        // value={english}
-        onChange={handleInputChange}
+        value={newWord.english}
+        onChange={(e) => handleInputChange('english', e.target.value)}
       />
       <AddCell
         inputId='transcription'
         inputTitle='Transcription'
         InputName='transcription'
-        // value={transcription}
-        onChange={handleInputChange}
+        value={newWord.transcription}
+        onChange={(e) => handleInputChange('transcription', e.target.value)}
       />
       <AddCell
         inputId='russian'
         inputTitle='Translation'
         InputName='russian'
-        // value={russian}
-        onChange={handleInputChange}
+        value={newWord.russian}
+        onChange={(e) => handleInputChange('russian', e.target.value)}
       />
 
       <Button type='add' buttonName='Add' onClick={handleAddNewWord} />
