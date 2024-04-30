@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import AddCell from '../AddCell/AddCell';
-import Button from './../../../components/General/Button/Button';
+import Button from '../General/Button/Button';
 import style from './AddWord.module.scss';
-import { WordContext } from '../../../context/WordContext';
+import { WordContext } from '../../context/WordContext';
 
 export default function AddWord() {
   const { addWord } = useContext(WordContext);

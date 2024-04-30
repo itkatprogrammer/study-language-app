@@ -1,6 +1,6 @@
-import TableRow from './../TableRow/TableRow';
+import TableRow from '../TableRow/TableRow';
 import style from './Table.module.css';
-import { WordContext } from '../../../context/WordContext';
+import { WordContext } from '../../context/WordContext';
 import { useContext } from 'react';
 
 export default function Table() {

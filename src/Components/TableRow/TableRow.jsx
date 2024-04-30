@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import Button from './../../../components/General/Button/Button';
+import Button from '../General/Button/Button';
 import style from './TableRow.module.scss';
-import { WordContext } from '../../../context/WordContext';
+import { WordContext } from '../../context/WordContext';
 
 export default function TableRow({
   id,

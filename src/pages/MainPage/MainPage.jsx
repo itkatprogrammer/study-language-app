@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
-import AddWord from './AddWord/AddWord';
-import Table from './Table/Table';
+import AddWord from '../../components/AddWord/AddWord';
+import Table from '../../components/Table/Table';
 import style from './MainPage.module.scss';
 
 import POST from '../../services/POST';
