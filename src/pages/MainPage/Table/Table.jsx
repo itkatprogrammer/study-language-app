@@ -1,10 +1,10 @@
 import TableRow from './../TableRow/TableRow';
 import style from './Table.module.css';
-import { WordServerContext } from '../../../context/WordServerContext';
+import { WordContext } from '../../../context/WordContext';
 import { useContext } from 'react';
 
 export default function Table() {
-  const { dataServer, setDataServer } = useContext(WordServerContext);
+  const { words, deleteWord } = useContext(WordContext);
 
   return (
     <div className={style.table}>
@@ -19,8 +19,14 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          {dataServer &&
-            dataServer.map((word) => <TableRow key={word.id} {...word} />)}
+          {words &&
+            words.map((word) => (
+              <TableRow
+                key={word.id}
+                {...word}
+                deleteDataRow={() => deleteWord(word.id)}
+              />
+            ))}
         </tbody>
       </table>
     </div>

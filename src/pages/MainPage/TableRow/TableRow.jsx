@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from './../../../components/General/Button/Button';
 import style from './TableRow.module.scss';
+import { WordContext } from '../../../context/WordContext';
 
 export default function TableRow({
   id,
@@ -9,19 +10,21 @@ export default function TableRow({
   russian,
   deleteDataRow,
 }) {
+  const { updateWord } = useContext(WordContext);
+
   const [isEditing, setIsEditing] = useState(false);
 
-  const [editedWord, setEditedWord] = useState(english);
+  const [editedEnglish, setEditedEnglish] = useState(english);
   const [editedTranscription, setEditedTranscription] = useState(transcription);
-  const [editedTranslation, setEditedTranslation] = useState(russian);
+  const [editedRussian, setEditedRussian] = useState(russian);
 
-  const [wordError, setWordError] = useState(false);
+  const [englishError, setEnglishError] = useState(false);
   const [transcriptionError, setTranscriptionError] = useState(false);
-  const [translationError, setTranslationError] = useState(false);
+  const [russianError, setRussianError] = useState(false);
 
-  const sumWordErrors = (e) => {
+  const sumEnglishErrors = (e) => {
     const value = e.target.value;
-    setWordError(!/^[a-zA-Z ]*$/.test(value) || !value.trim());
+    setEnglishError(!/^[a-zA-Z ]*$/.test(value) || !value.trim());
   };
 
   const sumTranscriptionErrors = (e) => {
@@ -29,46 +32,29 @@ export default function TableRow({
     setTranscriptionError(!/\[.*\]/.test(value) || !value.trim());
   };
 
-  const sumTranslationErrors = (e) => {
+  const sumRussianErrors = (e) => {
     const value = e.target.value;
-    setTranslationError(!/^[а-яА-Я ]*$/.test(value) || !value.trim());
+    setRussianError(!/^[а-яА-Я ]*$/.test(value) || !value.trim());
   };
 
   const handleCancel = () => {
     setIsEditing(false);
-    setEditedWord(english);
+    setEditedEnglish(english);
     setEditedTranscription(transcription);
-    setEditedTranslation(russian);
+    setEditedRussian(russian);
   };
 
   const handleSave = async () => {
     const updatedData = {
       id,
-      english: editedWord,
+      english: editedEnglish,
       transcription: editedTranscription,
-      russian: editedTranslation,
+      russian: editedRussian,
     };
 
-    try {
-      const resp = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${id}/update`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(updatedData),
-        }
-      );
+    updateWord(id, updatedData);
 
-      if (!resp.ok) {
-        throw new Error('Failed to update data');
-      }
-
-      setIsEditing(false);
-    } catch (error) {
-      console.error('Error updating data', error);
-    }
+    setIsEditing(false);
   };
 
   return (
@@ -78,17 +64,17 @@ export default function TableRow({
         {isEditing ? (
           <input
             type='text'
-            name='word'
-            className={wordError ? style.borderError : ''}
-            value={editedWord}
-            placeholder={wordError ? 'Данное поле не заполнено' : ''}
+            name='english'
+            className={englishError ? style.borderError : ''}
+            value={editedEnglish}
+            placeholder={englishError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
-              setEditedWord(e.target.value);
-              sumWordErrors(e);
+              setEditedEnglish(e.target.value);
+              sumEnglishErrors(e);
             }}
           />
         ) : (
-          editedWord
+          editedEnglish
         )}
       </td>
       <td>
@@ -112,17 +98,17 @@ export default function TableRow({
         {isEditing ? (
           <input
             type='text'
-            name='translation'
-            className={translationError ? style.borderError : ''}
-            value={editedTranslation}
-            placeholder={translationError ? 'Данное поле не заполнено' : ''}
+            name='russian'
+            className={russianError ? style.borderError : ''}
+            value={editedRussian}
+            placeholder={russianError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
-              setEditedTranslation(e.target.value);
-              sumTranslationErrors(e);
+              setEditedRussian(e.target.value);
+              sumRussianErrors(e);
             }}
           />
         ) : (
-          editedTranslation
+          editedRussian
         )}
       </td>
       <td className={style.buttonManage}>
@@ -132,7 +118,7 @@ export default function TableRow({
               type='save'
               buttonName='save'
               onClick={handleSave}
-              disabled={wordError || transcriptionError || translationError}
+              disabled={englishError || transcriptionError || russianError}
             />
             <Button type='cancel' buttonName='cancel' onClick={handleCancel} />
           </>
