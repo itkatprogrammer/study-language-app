@@ -8,11 +8,11 @@ import POST from '../../services/POST';
 export default function MainPage() {
   //const { dataServer, setDataServer } = useContext(WordServerContext);
 
-  const [newWord, setNewWord] = useState({
-    english: '',
-    transcription: '',
-    russian: '',
-  });
+  // const [newWord, setNewWord] = useState({
+  //   english: '',
+  //   transcription: '',
+  //   russian: '',
+  // });
 
   // const handleAddWord = async () => {
   //   console.log('newWord:', newWord);

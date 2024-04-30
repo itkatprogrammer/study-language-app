@@ -1,20 +1,20 @@
+import { API_ALL_WORDS } from '../constants/constants';
+
 class DELETE {
-  static async deleteRow(wordRow) {
+  static async removeWord(wordId) {
     try {
-      const resp = await fetch(
-        `http://itgirlschool.justmakeit.ru/api/words/${wordRow.id}`,
-        {
-          method: 'DELETE',
-        }
-      );
+      const resp = await fetch(`${API_ALL_WORDS}/${wordId}/delete`, {
+        method: 'POST',
+      });
 
       if (!resp.ok) {
-        throw new Error('Failled to delete table tow');
+        throw new Error('Failed to delete word');
       }
+
+      return await resp.json();
     } catch (e) {
-      console.error(e);
+      console.error('Error deleting word:', e);
     }
-    return false;
   }
 }
 
