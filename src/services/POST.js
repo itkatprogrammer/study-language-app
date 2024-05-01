@@ -3,7 +3,7 @@ import { API_ALL_WORDS } from '../constants/constants';
 class POST {
   static async addWord(newWord) {
     try {
-      const resp = await fetch(`${API_ALL_WORDS}/add`, {
+      const resp = await fetch('/api/words/add', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
