@@ -6,7 +6,7 @@ class POST {
       const resp = await fetch('/api/words/add', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           english: newWord.english,
