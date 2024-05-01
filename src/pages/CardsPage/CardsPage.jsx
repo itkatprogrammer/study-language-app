@@ -21,7 +21,7 @@ export default function CardsPage() {
   return (
     <div className={style.cardsListBg}>
       <div className={style.cardsList}>
-        <div className='headerName'>
+        <div className={style.headerName}>
           <p>
             Изучено слов: {learnedWords}/{words.length}
           </p>
