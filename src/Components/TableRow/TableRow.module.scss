@@ -1,16 +1,20 @@
 .buttonManage {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;  
-    gap: 10px;  
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
 }
 
 input {
-    background-color: #60669d24;
-    color:#cfc1c1;
-    border:1px solid#cfc1c1;
+  background-color: #60669d24;
+  color: #cfc1c1;
+  border: 1px solid#cfc1c1;
 }
 
-.borderError{
-    border: 2px solid #cc001b;
+.borderError {
+  border: 2px solid #cc001b;
+}
+
+.userInput {
+  max-width: 120px;
 }

@@ -13,4 +13,8 @@ input {
 
 .borderError {
   border: 2px solid #cc001b;
+}
+
+.userInput {
+  max-width: 120px;
 }/*# sourceMappingURL=TableRow.module.css.map */

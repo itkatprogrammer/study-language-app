@@ -65,7 +65,7 @@ export default function TableRow({
           <input
             type='text'
             name='english'
-            className={englishError ? style.borderError : ''}
+            className={englishError ? style.borderError : style.userInput}
             value={editedEnglish}
             placeholder={englishError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
@@ -82,7 +82,7 @@ export default function TableRow({
           <input
             type='text'
             name='transcription'
-            className={transcriptionError ? style.borderError : ''}
+            className={transcriptionError ? style.borderError : style.userInput}
             value={editedTranscription}
             placeholder={transcriptionError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
@@ -99,7 +99,7 @@ export default function TableRow({
           <input
             type='text'
             name='russian'
-            className={russianError ? style.borderError : ''}
+            className={russianError ? style.borderError : style.userInput}
             value={editedRussian}
             placeholder={russianError ? 'Данное поле не заполнено' : ''}
             onChange={(e) => {
