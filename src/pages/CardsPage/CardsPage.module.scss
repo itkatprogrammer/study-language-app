@@ -5,7 +5,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   align-content: flex-end;
-  max-width: 700px;
+  max-width: 660px;
   //   border: 5px solid #e30050;
 }
 
@@ -35,4 +35,8 @@
 .headerName {
   display: flex;
   justify-content: center;
+}
+
+.learnedWords {
+  color: #d4cccc;
 }

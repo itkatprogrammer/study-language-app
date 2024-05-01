@@ -22,7 +22,7 @@ export default function CardsPage() {
     <div className={style.cardsListBg}>
       <div className={style.cardsList}>
         <div className={style.headerName}>
-          <p>
+          <p className={style.learnedWords}>
             Изучено слов: {learnedWords}/{words.length}
           </p>
         </div>
