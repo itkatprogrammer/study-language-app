@@ -12,9 +12,9 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/game' element={<GamePage />} />
-        <Route path='/cards' element={<CardsPage />} />
+        <Route path='/study-language-app' element={<MainPage />} />
+        <Route path='/study-language-app/game' element={<GamePage />} />
+        <Route path='/study-language-app/cards' element={<CardsPage />} />
         <Route path='*' element={<MissingPage />} />
       </Routes>
       <Footer />
