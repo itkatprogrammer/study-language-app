@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   border: 1px solid black;
   background: linear-gradient(
     to bottom right,
@@ -13,6 +14,11 @@
   min-height: 180px;
   border-radius: 8px;
   margin: 0 auto;
+}
+
+.cardSlider {
+  width: 600px;
+  min-height: 250px;
 }
 
 .translation {
@@ -34,5 +40,5 @@
 }
 
 .checkBtn:focus {
-  outline: 2px solid rgb(156, 85, 132); /* Изменить цвет и толщину обводки фокуса */
+  outline: 2px solid rgb(156, 85, 132);
 }

@@ -1,11 +1,15 @@
-.sliderBox {
+.sliderBoxBg {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 78vh;
+  height: 91vh;
+  background-image: url(./../../img/bg7.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-right: 600px;
 }
-.sliderBox .slider {
+.sliderBoxBg .slider {
   display: flex;
   align-items: center;
   justify-content: center;

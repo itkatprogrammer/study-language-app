@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../General/Card/Card';
 import style from './Slider.module.scss';
+import gunNext from '../../img/gun-next.png';
+import gunPrev from '../../img/gun-prev.png';
 
 export default function Slider({ data }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,16 +27,18 @@ export default function Slider({ data }) {
   };
 
   return (
-    <div className={style.sliderBox}>
+    <div className={style.sliderBoxBg}>
       <div className={style.slider}>
         <div>
-          <button
-            className={style.buttonRadius}
+          <img
+            src={gunPrev}
+            alt='prev'
             onClick={handlePrev}
-            disabled={isFirstCard}
-          >
-            ←
-          </button>
+            style={{
+              cursor: !isFirstCard ? 'pointer' : 'default',
+              pointerEvents: isFirstCard ? 'none' : 'auto',
+            }}
+          />
         </div>
 
         {data.map((card, index) => (
@@ -44,22 +48,25 @@ export default function Slider({ data }) {
           >
             <Card
               id={card.id}
-              word={card.word}
+              word={card.english}
               transcription={card.transcription}
-              translation={card.translation}
+              translation={card.russian}
               isActive={isActive(card.id)}
+              isSlider={true}
             />
           </div>
         ))}
 
         <div>
-          <button
-            className={style.buttonRadius}
+          <img
+            src={gunNext}
+            alt='next'
             onClick={handleNext}
-            disabled={isLastCard}
-          >
-            →
-          </button>
+            style={{
+              cursor: !isLastCard ? 'pointer' : 'default',
+              pointerEvents: isLastCard ? 'none' : 'auto',
+            }}
+          />
         </div>
       </div>
 
@@ -68,4 +75,24 @@ export default function Slider({ data }) {
       </div>
     </div>
   );
+}
+
+{
+  /* <button
+            className={style.buttonRadius}
+            onClick={handleNext}
+            disabled={isLastCard}
+          >
+            →
+          </button> */
+}
+
+{
+  /* <button
+  className={style.buttonRadius}
+  onClick={handlePrev}
+  disabled={isFirstCard}
+>
+  ←
+</button>; */
 }

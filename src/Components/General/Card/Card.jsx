@@ -8,6 +8,7 @@ export default function Card({
   translation,
   handleCheck,
   isActive,
+  isSlider,
 }) {
   const [isClicked, setIsClicked] = useState(false);
 
@@ -25,7 +26,7 @@ export default function Card({
   };
 
   return (
-    <div className={style.card}>
+    <div className={`${style.card} ${isSlider ? style.cardSlider : ''}`}>
       <h3>{word}</h3>
       <p>{transcription}</p>
 
