@@ -2,9 +2,12 @@
   border-collapse: collapse;
   color: #cfc1c1;
   min-width: 1000px;
-  margin-left: 50px;
+}
+
+.tableWrapper {
   max-height: 50vh;
   overflow: auto;
+  margin-left: 50px;
 }
 
 table {

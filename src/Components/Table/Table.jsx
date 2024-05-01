@@ -8,27 +8,29 @@ export default function Table() {
 
   return (
     <div className={style.table}>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th className='table__title'>№</th>
-            <th className='table__title'>Word</th>
-            <th className='table__title'>Transcription</th>
-            <th className='table__title'>Translation</th>
-            <th className='table__title'>Manage</th>
-          </tr>
-        </thead>
-        <tbody>
-          {words &&
-            words.map((word) => (
-              <TableRow
-                key={word.id}
-                {...word}
-                deleteDataRow={() => deleteWord(word.id)}
-              />
-            ))}
-        </tbody>
-      </table>
+      <div class={style.tableWrapper}>
+        <table className='table'>
+          <thead>
+            <tr>
+              <th className='table__title'>№</th>
+              <th className='table__title'>Word</th>
+              <th className='table__title'>Transcription</th>
+              <th className='table__title'>Translation</th>
+              <th className='table__title'>Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            {words &&
+              words.map((word) => (
+                <TableRow
+                  key={word.id}
+                  {...word}
+                  deleteDataRow={() => deleteWord(word.id)}
+                />
+              ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

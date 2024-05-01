@@ -2,8 +2,12 @@ import { useState } from 'react';
 import data from './../../data';
 import Card from './../../components/General/Card/Card';
 import style from './CardsPage.module.scss';
+import { useContext } from 'react';
+import { WordContext } from '../../context/WordContext';
 
 export default function CardsPage() {
+  const { words } = useContext(WordContext);
+
   const [learnedWords, setLearnedWords] = useState(0);
   const [clickedCards, setClickedCards] = useState(new Set());
 
@@ -19,18 +23,18 @@ export default function CardsPage() {
       <div className={style.cardsList}>
         <div className='headerName'>
           <p>
-            Изучено слов: {learnedWords}/{data.length}
+            Изучено слов: {learnedWords}/{words.length}
           </p>
         </div>
 
         <div className={style.cardsLine}>
-          {data.map((word) => (
+          {words.map((word) => (
             <Card
               key={word.id}
               id={word.id}
-              word={word.word}
+              word={word.english}
               transcription={word.transcription}
-              translation={word.translation}
+              translation={word.russian}
               handleCheck={handleCheck}
               className={style.card}
             />

@@ -1,30 +1,33 @@
 .cardsList {
-    display: flex;
-    gap: 10px;
-    height: 90vh;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-end;
-    max-width: 450px;
-    border: 5px solid #e30050;
+  display: flex;
+  gap: 10px;
+  height: 90vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  max-width: 700px;
+  //   border: 5px solid #e30050;
 }
 
-.cardsListBg{
-    background-image: url(./../../img/bg2.jpg);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: flex-end;
+.cardsListBg {
+  background-image: url(./../../img/bg2.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .cardsLine {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%; /* Ширина должна быть 100% чтобы растянуться на всю ширину контейнера */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%; /* Ширина должна быть 100% чтобы растянуться на всю ширину контейнера */
+  max-height: 70vh;
+  overflow: auto;
 }
 
 .card {
-    flex-basis: calc(50% - 5px); /* 50% минус половина отступа 5px между карточками */
+  flex-basis: calc(
+    50% - 5px
+  ); /* 50% минус половина отступа 5px между карточками */
 }
-
