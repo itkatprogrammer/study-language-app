@@ -12,9 +12,9 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path='/itkatprogrammer/' element={<MainPage />} />
-        <Route path='/itkatprogrammer/game' element={<GamePage />} />
-        <Route path='/itkatprogrammer/cards' element={<CardsPage />} />
+        <Route path='/' element={<MainPage />} />
+        <Route path='/game' element={<GamePage />} />
+        <Route path='/cards' element={<CardsPage />} />
         <Route path='*' element={<MissingPage />} />
       </Routes>
       <Footer />
